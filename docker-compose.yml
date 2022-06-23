@@ -1,0 +1,20 @@
+version: "3.8"
+
+services:
+  server:
+    build: .
+    container_name: yup_express_server_c
+    volumes:
+      - .:/app
+      - /app/node_modules
+    ports:
+      - 9000:9000
+
+  frontend:
+    build: ./client
+    container_name: yup_express_client_c
+    volumes:
+      - ./client:/app
+      - /app/node_modules
+    ports:
+      - 9001:9001
